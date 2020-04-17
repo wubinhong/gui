@@ -52,9 +52,9 @@ def quit():
 
 master = Tk()
 master.winfo_toplevel().title("Stop Watcher")
+master.geometry('350x200')
 
-watchFont = Font(family='Consolas', size=70)
-displayLabel = Label(master, text=calc_duration(duration), font=watchFont)
+displayLabel = Label(master, text=calc_duration(duration), font=Font(family='Consolas', size=70))
 displayLabel.pack(fill=BOTH, expand=1)
 
 buttonFont = Font(family='Consolas', size=15)
