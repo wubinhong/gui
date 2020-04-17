@@ -30,10 +30,11 @@ def run():
 
 
 def reset():
-    global duration
-    start_or_stop()
+    global duration, paused
     duration = 0
+    paused = True
     displayLabel.config(text=calc_duration(duration))
+    startButton.config(text='Start')
 
 
 def start_or_stop():
@@ -43,13 +44,14 @@ def start_or_stop():
         text='Start') if paused else startButton.config(text='Stop')
     master.after(1, run)  # after 1 millisecond, start Run
 
+
 def quit():
     global master
     master.quit()
 
 
 master = Tk()
-master.title = "Calculator"
+master.winfo_toplevel().title("Stop Watcher")
 
 watchFont = Font(family='Consolas', size=70)
 displayLabel = Label(master, text=calc_duration(duration), font=watchFont)

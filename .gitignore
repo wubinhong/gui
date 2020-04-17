@@ -13,8 +13,7 @@ __pycache__
 ## Visual Studio Code
 .vscode
 
-# For pyinstall
-*.spec
+# For py2app
 dist
 */**/dist
 build
