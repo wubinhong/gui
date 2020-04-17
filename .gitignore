@@ -1,0 +1,22 @@
+## Idea
+.idea
+
+# Mac
+.DS_Store
+
+## Python
+*.pyc
+__pycache__
+*/**/__pycache__
+.pytest_cache
+
+## Visual Studio Code
+.vscode
+
+# For pyinstall
+*.spec
+dist
+*/**/dist
+build
+*/**/build
+
