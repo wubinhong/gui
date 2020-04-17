@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from tkinter import Tk, Label, Button, LEFT
+from tkinter import Tk, Label, Button, LEFT, RIGHT, BOTH
 from tkinter.font import Font
 
 paused = True
@@ -55,14 +55,15 @@ master.winfo_toplevel().title("Stop Watcher")
 
 watchFont = Font(family='Consolas', size=70)
 displayLabel = Label(master, text=calc_duration(duration), font=watchFont)
-displayLabel.pack()
+displayLabel.pack(fill=BOTH, expand=1)
 
 buttonFont = Font(family='Consolas', size=15)
-buttonStyle = dict(font=buttonFont, width=25, pady=20)
-Button(master, cnf=buttonStyle, text='Reset', command=reset).pack(side=LEFT)
+buttonStyle = dict(font=buttonFont, pady=15)
+Button(master, cnf=buttonStyle, text='Reset', command=reset).pack(
+    fill=BOTH, expand=1, side=LEFT)
 startButton = Button(master, cnf=buttonStyle,
                      text="Start", command=start_or_stop)
-startButton.pack(side=LEFT)
+startButton.pack(fill=BOTH, expand=1, side=RIGHT)
 # Button(master, cnf=buttonStyle, text='Quit', command=quit).pack(side=LEFT)
 
 master.mainloop()
