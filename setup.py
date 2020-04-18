@@ -7,7 +7,7 @@ Usage:
 
 from setuptools import setup
 
-APP = ['ui/tkinter_stopwatch.py']
+APP = ['src/tkinter_stopwatch.py']
 DATA_FILES = []
 OPTIONS = {'iconfile': 'images/stopwatch.icns'}
 

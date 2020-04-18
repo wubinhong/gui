@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from tkinter import Tk, Label, Button, LEFT, RIGHT, BOTH
 from tkinter.font import Font
+from util import get_logger
 
+log = get_logger(__name__)
 paused = True
 # Duration in second
 duration = 0
@@ -12,8 +14,9 @@ loopTime = 1000
 def calc_duration(d):
     hours, remainder = divmod(d, 3600)
     mintues, seconds = divmod(remainder, 60)
-    print(hours, mintues, seconds)
-    return '{:02}:{:02}:{:02}'.format(int(hours), int(mintues), int(seconds))
+    log.info('calc duration: %s, %s, %s', hours, mintues, seconds)
+    # return '{:02}:{:02}:{:04.1f}'.format(int(hours), int(mintues), seconds)
+    return '{:02}:{:02}:{:02.0f}'.format(int(hours), int(mintues), seconds)
 
 
 def run():
@@ -25,7 +28,7 @@ def run():
     duration += loopTime / 1000
     displayLabel.config(text=calc_duration(duration))
 
-    # After 1 second, call run again (start an infinite recursive loop)
+    # After ${loopTime} millisecond, call run again (start an infinite recursive loop)
     master.after(loopTime, run)
 
 
@@ -52,7 +55,7 @@ def quit():
 
 master = Tk()
 master.winfo_toplevel().title("Stop Watcher")
-master.geometry('350x200')
+master.geometry('400x200')
 
 displayLabel = Label(master, text=calc_duration(duration), font=Font(family='Consolas', size=70))
 displayLabel.pack(fill=BOTH, expand=1)
